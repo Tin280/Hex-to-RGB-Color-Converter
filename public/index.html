@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Converter</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="./js/script.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Color Converter</h1>
+        <label for="hexInput">Enter Hex Color:</label>
+        <input type="text" id="hexInput" placeholder="#FF5733">
+        <button id="convertToRgb">Convert to RGB</button>
+        <div class="result" id="result">
+            <label id="resultLabel">RGB</label>
+        </div>
+
+        <br>
+
+        <label for="rgbInput">Enter RGB (e.g., 255,87,51):</label>
+        <input type="text" id="rgbInput" placeholder="255,87,51">
+        <button id="convertToHex">Convert to Hex</button>
+        <div class="resulthx" id="resulthx">
+            <label id="resultLabelhex">Hex:</label>
+        </div>
+        <br>
+        <div id="color-display-area"></div>
+
+    </div>
+</body>
+
+</html>
