@@ -5,7 +5,7 @@ const port = 3000;
 
 app.use(express.json());
 const corsOptions = {
-  origin: 'http://127.0.0.1:5500'
+  origin: '*'
 };
 app.use(cors(corsOptions))
 
