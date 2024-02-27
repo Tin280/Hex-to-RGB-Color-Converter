@@ -49,6 +49,6 @@ router.post('/hex-to-rgb', (req, res) => {
 //     })
 // }
 
-app.use('/.netlify/functions/server',router)
+app.use('/server',router)
 
 module.exports.handler = serverless(app);
