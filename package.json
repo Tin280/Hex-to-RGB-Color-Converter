@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/server",
     "start": "set NODE_OPTIONS=--openssl-legacy-provider && npx netlify-lambda serve src",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && npx netlify-lambda build src"
+    "build": " npx netlify-lambda build src"
   },
   "keywords": [],
   "author": "",
