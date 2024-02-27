@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3000;
+const serverless = require('serverless-http')
+const router = express.Router()
 
 app.use(express.json());
 const corsOptions = {
@@ -12,7 +13,7 @@ app.use(cors(corsOptions))
 // Import the hexToRgb function from the converter module
 const { hexToRgb,rgbToHex  } = require('./converter');
 // API route for hex to RGB conversion
-app.get('/hex-to-rgb/:hex', (req, res) => {
+router.get('/hex-to-rgb/:hex', (req, res) => {
   const hex = req.params.hex;
   const rgb = hexToRgb(hex);
   console.log({ hex, rgb })
@@ -20,7 +21,7 @@ app.get('/hex-to-rgb/:hex', (req, res) => {
   res.json({ hex, rgb });
 });
 
-app.post('/hex-to-rgb', (req, res) => {
+router.post('/hex-to-rgb', (req, res) => {
     const hex = req.body.hex;
     const rgb = hexToRgb(hex);
     console.log({ hex, rgb })
@@ -28,17 +29,26 @@ app.post('/hex-to-rgb', (req, res) => {
   });
 
 
-  app.post('/rgb-to-hex', (req, res) => {
+  router.post('/rgb-to-hex', (req, res) => {
     const { red, green, blue } = req.body; // Receive RGB values as an object
     const hex = rgbToHex(red, green, blue); // Convert RGB to hex
     console.log({ red, green, blue, hex });
     res.json({ hex });
   });
-  
-if (process.env.NODE_ENV === 'test') {
-    module.exports = app;
-} else {
-    app.listen(port, () => {
-        console.log(`Server: localhost:${port}`)
+  router.get('/' , (req,res) => {
+    res.json({
+      'hello':'hello'
     })
-}
+  })
+  
+// if (process.env.NODE_ENV === 'test') {
+//     module.exports = app;
+// } else {
+//     app.listen(port, () => {
+//         console.log(`Server: localhost:${port}`)
+//     })
+// }
+
+app.use('/.netlify/functions/server',router)
+
+module.exports.handler = serverless(app);
