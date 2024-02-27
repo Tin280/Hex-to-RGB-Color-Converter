@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/server",
-    "start": "set NODE_OPTIONS=--openssl-legacy-provider && npx netlify-lambda serve src",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && npx netlify-lambda build src"
+    "start:linux": "export NODE_OPTIONS=--openssl-legacy-provider && npx netlify-lambda serve src",
+    "build:linux": "export NODE_OPTIONS=--openssl-legacy-provider && npx netlify-lambda build src",
+    "start:win": "export NODE_OPTIONS=--openssl-legacy-provider && npx netlify-lambda serve src",
+    "build:win": "export NODE_OPTIONS=--openssl-legacy-provider && npx netlify-lambda build src"
   },
   "keywords": [],
   "author": "",
