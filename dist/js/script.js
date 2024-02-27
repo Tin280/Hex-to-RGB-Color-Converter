@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(hexInput)
         }
         // Replace this URL with your actual API endpoint
-        fetch(`http://localhost:9000/.netlify/functions/server/hex-to-rgb/${hexInput}`)
+        fetch(`https://converter-color.netlify.app/server/hex-to-rgb/${hexInput}`)
             .then(response => response.json())
             .then(data => {
                 const result = `RGB: ${data.rgb.r}, ${data.rgb.g}, ${data.rgb.b}`;
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log(validRed, validGreen, validBlue);
         }
 
-        fetch('http://localhost:9000/.netlify/functions/server/rgb-to-hex/', {
+        fetch('https://converter-color.netlify.app/server/rgb-to-hex/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
